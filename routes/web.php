@@ -5,6 +5,15 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('test', function () {
+    // dispatch(function() {
+    //     logger('Test dispatched');
+    // });
+
+    \App\Jobs\TranslateJob::dispatch();
+
+    return 'Test dispatched';
+});
 
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
