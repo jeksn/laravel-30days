@@ -4,13 +4,14 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
+use App\Jobs\TranslateJob;
 
 Route::get('test', function () {
     // dispatch(function() {
     //     logger('Test dispatched');
     // });
 
-    \App\Jobs\TranslateJob::dispatch();
+    TranslateJob::dispatch();
 
     return 'Test dispatched';
 });
